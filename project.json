@@ -5,6 +5,8 @@
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.22.3]",
+    "UiPath.GSuite.Activities": "[2.6.22]",
+    "UiPath.Mail.Activities": "[1.23.1]",
     "UiPath.MicrosoftOffice365.Activities": "[2.6.21]",
     "UiPath.System.Activities": "[23.10.6]",
     "UiPath.Testing.Activities": "[23.10.1]",
@@ -85,6 +87,20 @@
         "testCaseType": "TestCase",
         "executionTemplateType": "Local",
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "f2f0af5b-ec48-4cf8-8dd4-18c3e943fe78",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\SendMailTestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "13ccd42c-a339-4a97-a869-4fc4875bf1c7",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\ProcessCommonBooksTestCase.xaml"
       }
     ],
     "modernBehavior": true,
