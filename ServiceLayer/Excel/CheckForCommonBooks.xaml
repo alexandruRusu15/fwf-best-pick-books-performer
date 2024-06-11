@@ -3,6 +3,9 @@
     <x:Property Name="io_dtReadEmag" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_dtReadCarturesti" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_dtCommonBooks" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_filePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_sheet1" Type="InArgument(x:String)" />
+    <x:Property Name="in_sheet2" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -120,8 +123,8 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Start Process" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Start Process&quot;]" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[io_dtReadEmag]" DisplayName="Read Range Emag Sheet" sap:VirtualizedContainerService.HintSize="586,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Emag" WorkbookPath="Data\Output\OutputReport.xlsx" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[io_dtReadCarturesti]" DisplayName="Read Range Carturesti Sheet" sap:VirtualizedContainerService.HintSize="586,88" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="Carturesti" WorkbookPath="Data\Output\OutputReport.xlsx" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[io_dtReadEmag]" DisplayName="Read Range Emag Sheet" sap:VirtualizedContainerService.HintSize="586,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[in_sheet1]" WorkbookPath="[in_filePath]" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[io_dtReadCarturesti]" DisplayName="Read Range Carturesti Sheet" sap:VirtualizedContainerService.HintSize="586,88" sap2010:WorkflowViewState.IdRef="ReadRange_4" SheetName="[in_sheet2]" WorkbookPath="[in_filePath]" />
     <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[io_dtReadEmag]" DisplayName="For Each Row In Both Data Tables" sap:VirtualizedContainerService.HintSize="586,1203" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">

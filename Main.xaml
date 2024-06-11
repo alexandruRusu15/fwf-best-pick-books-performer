@@ -717,31 +717,88 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke PopulateExcelFile Workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="ServiceLayer\Excel\PopulateExcelFile.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtCarturestiBooks">[dt_carturestiBooks]</InOutArgument>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtEmagBooks">[dt_emagBooks]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtCarturestiBooks">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_carturestiBooks" />
+                                          </InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtEmagBooks">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_emagBooks" />
+                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheetName1">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName1&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheetName2">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName2&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_filePath">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FilePath&quot;).ToString" />
+                                          </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckForCommonBooks Workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="ServiceLayer\Excel\CheckForCommonBooks.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtReadEmag">[dt_EmagBooks]</InOutArgument>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtReadCarturesti">[dt_CarturestiBooks]</InOutArgument>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtCommonBooks">[dt_bestPicks]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtReadEmag">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_EmagBooks" />
+                                          </InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtReadCarturesti">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_CarturestiBooks" />
+                                          </InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtCommonBooks">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_bestPicks" />
+                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_filePath">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FilePath&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheet1">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName1&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheet2">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName2&quot;).ToString" />
+                                          </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke PopulateCommonBooks Workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="ServiceLayer\Excel\PopulateCommonBooks.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtBestPicks">[dt_bestPicks]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtBestPicks">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_bestPicks" />
+                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName3&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_fileName">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FilePath&quot;).ToString" />
+                                          </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SortBooks Workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="ServiceLayer\Excel\SortBooks.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBestPicks">[dt_bestPicks]</InArgument>
-                                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtSortedBooks">[dt_sortedBestPicks]</OutArgument>
+                                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtBestPicks">
+                                            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_bestPicks" />
+                                          </InArgument>
+                                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtSortedBooks">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_sortedBestPicks" />
+                                          </OutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_filePath">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FilePath&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName3&quot;).ToString" />
+                                          </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke RenameExcelFile Workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="ServiceLayer\Excel\RenameExcelFile.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtNameChange">[dt_sortedBestPicks]</InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dtNameChange">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_sortedBestPicks" />
+                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SheetName3&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_filePath">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FilePath&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_sheetNameChange">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;NewName&quot;).ToString" />
+                                          </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SendMail Workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_45" UnSafe="False" WorkflowFileName="ServiceLayer\Mail\SendMail.xaml">

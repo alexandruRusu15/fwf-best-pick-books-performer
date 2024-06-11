@@ -2,6 +2,8 @@
   <x:Members>
     <x:Property Name="in_dtBestPicks" Type="InArgument(sd:DataTable)" />
     <x:Property Name="out_dtSortedBooks" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_filePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_sheetName" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
