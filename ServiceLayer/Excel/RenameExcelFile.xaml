@@ -3,7 +3,6 @@
     <x:Property Name="io_dtNameChange" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="in_sheetName" Type="InArgument(x:String)" />
     <x:Property Name="in_filePath" Type="InArgument(x:String)" />
-    <x:Property Name="in_sheetNameChange" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />

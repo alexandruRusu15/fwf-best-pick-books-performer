@@ -1,15 +1,16 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="PopulateExcelFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="io_dtCarturestiBooks" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="io_dtEmagBooks" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="in_sheetName1" Type="InArgument(x:String)" />
     <x:Property Name="in_sheetName2" Type="InArgument(x:String)" />
     <x:Property Name="in_filePath" Type="InArgument(x:String)" />
+    <x:Property Name="io_dtCarturestiBooksSorted" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_dtCarturestiBooksUnsorted" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1100,633</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1100,749</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PopulateExcelFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,9 +91,16 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Populate Excel File" sap:VirtualizedContainerService.HintSize="450,564" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Populate Excel File" sap:VirtualizedContainerService.HintSize="450,684" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,6 +108,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Excel File" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Start Process: &quot;]" />
     <ui:WriteRange AddHeaders="True" DataTable="[io_dtEmagBooks]" DisplayName="Write In Emag Excel Sheet" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_sheetName1]" StartingCell="A1" WorkbookPath="[in_filePath]" />
-    <ui:WriteRange AddHeaders="True" DataTable="[io_dtCarturestiBooks]" DisplayName="Write In Carturesti Excel Sheet" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_sheetName2]" StartingCell="A1" WorkbookPath="[in_filePath]" />
+    <ui:WriteRange AddHeaders="True" DataTable="[in_dtCarturestiBooksUnsorted]" DisplayName="Write In Carturesti Excel Sheet" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[in_sheetName2]" StartingCell="A1" WorkbookPath="[in_filePath]" />
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Price" DataTable="[in_dtCarturestiBooksUnsorted]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="388,80" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[io_dtCarturestiBooksSorted]" SortOrder="Descending" />
   </Sequence>
 </Activity>
